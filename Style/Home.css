@@ -2,18 +2,81 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgb(242,248,246);
 }
 
 .Nav
 {
     display: flex;
-    height: 10vh;
+    height: 12vh;
     width: 100%;
-    background-color: ;
+    justify-content: space-evenly;
+    margin: auto;
+    
+
+    /* align-content: center;
+    margin: auto;
+    justify-content: center ; */
+
+  
 
 
 }
 .logo  
+{ 
+    
+    float: left;
+}
+.logo_name
 {
-    height: ;
+    margin-left: 1rem;
+}
+
+.search
+{
+    height: 1.5rem;
+    margin-top: 30px;
+    margin-left: 2rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    width: 15rem;
+    
+}
+.LogSin
+{
+    
+}
+.login,.signup{
+    border: 2px solid rgb(9,129,74);
+    background-color: white;
+    border-radius: 2rem;
+    outline: none;
+    height: 2rem;
+    width: 5rem;
+    font-size: large;
+    margin-top: 25px;
+}
+.Display
+{
+    display: flex;
+    margin-top: 40px;
+
+}
+.Display_para h1
+{
+    max-width: 15rem;
+    margin-left: 3rem ;
+}
+.Display p{
+
+    max-width: 20rem;
+    margin-left:3rem;
+}
+
+
+.Dp{
+    height:400px;
+    width: 100%;
+
 }

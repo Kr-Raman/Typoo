@@ -9,55 +9,86 @@ body{
 .Nav
 {
     display: flex;
-    height: 12vh;
+    height: 5rem;
     width: 100%;
-    justify-content: space-evenly;
-    margin: auto;
-    
-
+    justify-content: space-between;
+    /* margin: auto; */
     /* align-content: center;
     margin: auto;
     justify-content: center ; */
-
-  
-
-
 }
 .logo  
 { 
-    
-    float: left;
+    margin-left: 40px;
+
 }
 .logo_name
 {
-    margin-left: 1rem;
+    /* made the position relative  */
+   position: absolute;
+   left: 10rem;
+   text-align: center;
+   
+
+
+   
 }
 
-.search
+.search1
 {
+    /* made position relative ,addded search icon
+    border radius decreased */
+    position: absolute;
+    left: 22rem;
     height: 2rem;
     margin-top: 30px;
-    margin-left: 6rem;
-    border-radius: 2rem;
+    /* margin-left: 6rem; */
+    border-radius: 0.5rem;
     outline: none;
     border: none;
-    width: 15rem;
-    border: .8px solid rgb(0, 0, 0);
+    width: 20rem;
+    padding-left: 15px;
     
+    /* border: .8px solid rgb(0, 0, 0); */ 
+}
+
+.search_logo
+{
+    position: absolute;
+    left: 41rem;
+    height: 1.5rem;
+    margin-top: 35px;
+    filter: opacity(60%);
+    
+}
+.search2
+{
+    position: relative;
+    left: 4.9rem;
+    height: 2rem;
+    margin-top: 30px;
+    /* margin-left: 6rem; */
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    width: 10rem;
+    padding-left: 15px;
+    
+    /* border: .8px solid rgb(0, 0, 0); */ 
 }
 .search_btn
 {
-    
-   
-    border-radius: 2rem;
+    border-radius: .5rem;
     outline: none;
-    height: 2.3rem;
+    height: 2.1rem;
     width: 8rem;
     font-size: large;
     margin-top: 25px;
+    margin-left: 75px;
     cursor: pointer;
     background-color:rgb(9,129,74);
     color: white;
+
 }
 input::placeholder {
     font-size: 1.2em;
@@ -67,19 +98,42 @@ input::placeholder {
 {
     
 }
-.login,.signup{
-    border: 2px solid rgb(9,129,74);
-    background-color: white;
-    border-radius: 2rem;
+/* added hover property in the sign in btn changes to green*/
+.signin{
+    position: absolute;
+    left: 70rem;
+    border: none;
+    background-color: transparent;
+    border-radius: 0.5rem;
     outline: none;
     height: 2rem;
-    width: 5rem;
+    width: 6rem;
+    margin-top: 25px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: 600;
+}
+.signin:hover
+{
+    color: rgb(9,129,74) ;
+}
+.signup
+{
+    position: absolute;
+    left: 76rem;
+    border: 2px solid rgb(9,129,74);
+    background-color: white;
+    border-radius: 0.5rem;
+    outline: none;
+    height: 2rem;
+    width: 6rem;
     font-size: large;
     margin-top: 25px;
     cursor: pointer;
+    font-weight: 600;
 }
 
-.signuo {
+.signup {
     background-color: white; 
     color: black; 
     border: 2px solid rgb(9,129,74);

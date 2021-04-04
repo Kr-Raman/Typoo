@@ -3,6 +3,7 @@ body{
     padding: 0;
     box-sizing: border-box;
     background-color: rgb(242,248,246);
+    font-family: verdana, arial, helvetica;
 }
 
 .Nav
@@ -34,15 +35,34 @@ body{
 
 .search
 {
-    height: 1.5rem;
+    height: 2rem;
     margin-top: 30px;
-    margin-left: 2rem;
-    border-radius: 1rem;
+    margin-left: 6rem;
+    border-radius: 2rem;
     outline: none;
     border: none;
     width: 15rem;
+    border: .8px solid rgb(0, 0, 0);
     
 }
+.search_btn
+{
+    
+   
+    border-radius: 2rem;
+    outline: none;
+    height: 2.3rem;
+    width: 8rem;
+    font-size: large;
+    margin-top: 25px;
+    cursor: pointer;
+    background-color:rgb(9,129,74);
+    color: white;
+}
+input::placeholder {
+    font-size: 1.2em;
+    font-style: bold;
+  }
 .LogSin
 {
     
@@ -56,7 +76,23 @@ body{
     width: 5rem;
     font-size: large;
     margin-top: 25px;
+    cursor: pointer;
 }
+
+.signuo {
+    background-color: white; 
+    color: black; 
+    border: 2px solid rgb(9,129,74);
+  }
+  
+  .signup:hover {
+    background-color:rgb(9,129,74);
+    color: white;
+  
+  }
+
+
+
 .Display
 {
     display: flex;
@@ -65,14 +101,16 @@ body{
 }
 .Display_para h1
 {
-    max-width: 15rem;
-    margin-left: 3rem ;
+    
+    margin-left: 5rem ;
+    font-size: 45px;
 }
 .Display p{
 
-    max-width: 20rem;
-    margin-left:3rem;
+    max-width: 27rem;
+    margin-left:5rem;
 }
+
 
 
 .Dp{
@@ -80,3 +118,36 @@ body{
     width: 100%;
 
 }
+.featured{
+    display:flex;
+    margin-left: 10rem;
+    margin-top: 8rem;
+}
+.first{
+    flex: 30%;
+    max-width: 30%;
+
+}
+.second{
+    flex: 30%;
+    max-width: 30%;
+}
+.third{
+    flex: 30%;
+    max-width: 30%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20rem;
+    height: 24rem;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }

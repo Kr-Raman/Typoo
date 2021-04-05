@@ -84,8 +84,6 @@ input::placeholder {
     font-style: bold;
 }
 
-.LogSin {}
-
 
 /* added hover property in the sign in btn changes to green*/
 
@@ -219,61 +217,60 @@ input::placeholder {
 
 /* categories section */
 
-.cat_display
-{
+.cat_display {
     display: flex;
-    justify-content:flex-start ;
+    justify-content: flex-start;
     background-color: white;
     margin-top: 5rem;
-   align-content: flex-end;
+    align-content: flex-end;
     height: 20rem;
-    
-
 }
-.cat_display p{
+
+.cat_display p {
     position: absolute;
     opacity: 70%;
-    
-    left:4rem;
+    left: 4rem;
     font-size: large;
     font-weight: 800;
-    
-
 }
 
 .cat_div {
     height: 100%;
     width: 100%;
     /* margin-top: 5rem; */
-    margin-left:6rem ;
+    margin-left: 6rem;
     /* align-items: center; */
     text-align: center;
     /* align-content: center; */
     justify-content: center;
     /* align-self: center; */
     display: block;
-
     margin: auto;
-    
 }
-.cat_div:hover{
+
+.cat_div:hover {
     color: rgb(9, 129, 74);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
     transition: 0.5s;
 }
-.cat_div h3{
-    color:rgb(13, 104, 58);
+
+.cat_div h3 {
+    color: rgb(13, 104, 58);
 }
+
 .cat_img {
     margin-top: 60px;
     height: 8rem;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
-.cat_img:hover{
+
+.cat_img:hover {
     box-shadow: 0px 8px 20px 0 rgba(1, 26, 10, 1);
 }
 
+
 /* Latetest blog */
+
 .latest {
     display: flex;
     margin-left: 10rem;
@@ -304,4 +301,68 @@ input::placeholder {
 
 .container_blog {
     padding: 2px 16px;
+}
+
+
+/* write you own blog section  */
+
+.write_blog {
+    background-color: white;
+    margin-top: 5rem;
+    align-content: flex-end;
+    height: 15rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    border-radius: 2rem;
+    display: flex;
+}
+
+.write_blog h1 {
+    margin-left: 30px;
+}
+
+.write_blog p {
+    margin-left: 30px;
+}
+
+.subs_btn {
+    border-radius: .5rem;
+    outline: none;
+    height: 2.1rem;
+    width: 8rem;
+    font-size: large;
+    margin-top: 25px;
+    margin-left: 75px;
+    cursor: pointer;
+    background-color: rgb(9, 129, 74);
+    color: white;
+}
+
+.subs_btn:hover {
+    box-shadow: 0px 5px 5px 0 rgba(1, 26, 10, 1);
+    background-color: rgb(47, 143, 100);
+}
+
+.email {
+    position: relative;
+    left: 4rem;
+    height: 2rem;
+    margin-top: 30px;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    width: 15rem;
+    padding-left: 15px;
+    border: .8px solid rgb(0, 0, 0);
+}
+
+.subs1 {
+    height: 200px;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+.subs1:hover {
+    height: 220px;
+    margin-top: 10px;
 }

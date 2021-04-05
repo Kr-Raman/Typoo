@@ -138,17 +138,16 @@ input::placeholder {
 }
 
 .Display_para h1 {
-    
     margin-left: 5rem;
     font-size: 45px;
 }
 
 .Display p {
-
     max-width: 27rem;
     margin-left: 5rem;
-  
 }
+
+
 /* .over{
     position:absolute;
    overflow: hidden;
@@ -162,20 +161,16 @@ input::placeholder {
     z-index: 1;
 } */
 
-.Display_img
-{
-    transform: rotate(-20deg);
+.Display_img {
     border-radius: 2vh;
     overflow: hidden;
+    margin-left: 80px;
 }
 
 .Dp {
     height: 400px;
     min-width: 5vh;
-    
     border-radius: 2vh;
-
-
 }
 
 .featured {

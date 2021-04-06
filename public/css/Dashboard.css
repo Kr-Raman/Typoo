@@ -1,0 +1,71 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+.header
+{
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    
+    
+}
+.header img{
+    border-radius: 50%;
+}
+.container
+{
+    position:absolute;
+    display: flex;
+    height: 754px;
+    z-index: 1;
+    width: 100%;
+    background-color: brown;
+}
+
+.profile
+{
+    display: block;
+    
+    min-width:21rem ;
+    max-width: 21rem;
+    background-color: aquamarine;
+}
+.profile img
+{
+    height: 300px;
+    min-width: 200px;
+    max-width: 300px;
+    border-radius: 50%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.profile_info
+{
+    margin: 2rem;
+    text-align: center;
+}
+.blog_section
+{
+    display:flexbox ;
+    overflow: scroll;
+
+}
+
+.blogs
+{   float: left;
+    height: 10rem;
+    width: 20rem;
+    border-radius:1rem ;
+    background-color: yellow;
+    padding: 5px;
+    margin: 2rem;
+}

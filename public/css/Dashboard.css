@@ -79,17 +79,19 @@
     border-radius: 0.3rem;
 }
 
-ul.side_links li {
+.side_links li {
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 1px;
     list-style: none;
 }
 
-ul.side_links li img {
-    height: 20px;
-    filter: invert(100%);
-    margin-top: 5px;
-    margin-right: 5px;
+ul {
+    list-style-image: url(/public/Images/Capture.PNG);
+}
+
+.side_links li img {
+    height: 50px;
+    width: 50px;
 }
 
 
@@ -97,7 +99,7 @@ ul.side_links li img {
 
 .blog_section {
     display: flexbox;
-    overflow: scroll;
+    overflow: auto;
     background-color: rgb(242, 248, 246);
 }
 

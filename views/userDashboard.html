@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,53 @@
     <link rel="stylesheet" href="/public/css/Dashboard.css">
     <title>Dashboard</title>
 </head>
+
 <body>
     <nav class="header">
-        <img src="/public/Images/cat2.png" alt="profile_pic">
+        <img class="logo" src="/public/Images/logo.svg" alt="logo">
+        <h1 class="logo_name">Typoo</h1>
+
+
+        <img class="profile_pic" src="/public/Images/cat2.png" alt="profile_pic">
         <form action="">
-            
             <select id="cars" name="cars">
               <option value="">Raman kumar</option>
               <option value="Logout">Logout</option>
             </select>
             <input type="submit">
-          </form>
+        </form>
     </nav>
 
+
+    <hr>
     <!-- this is the container containing the profile sectioiin and the blogs published section -->
 
     <div class="container">
         <div class="profile">
-            <img src="/public/Images/cat1.png" alt="profile_pic">
+            <img src="/public/Images/Capture.PNG" alt="profile_pic">
             <div class="profile_info">
-                <p>raman kumar</p>
-                <p>computer science Blogger</p>
+                <h1>Raman Kumar</h1><br>
+                <p>Cloud Computing || MERN Stack Development || AWS || Penetration testing || AI & ML || Virtualization||Data Science</p><br>
+                <button class="edit_btn">Edit profile</button><br><br>
+                <ul class="side_links">
+
+                    <li>
+                        <a href="#"><img src="/images/writing.png" alt="">All notes</a>
+                    </li>
+                    <li><img src="/images/add-reminder.png" alt=""><a href="#">Reminders</a></li>
+                    <li><img src="/images/task.png" alt=""><a href="#">Tasks</a></li>
+                    <li><img src="/images/love.png" alt=""><a href="#">Favorites</a></li>
+                    <li><img src="/images/marker.png" alt=""><a href="#">Highlights</a></li>
+                    <li><img src="/images/clock.png" alt=""><a href="#">Activity</a></li>
+                </ul>
+                <br>
+                <hr>
+                <br>
                 <p>blog posted : 100</p>
                 <p>Total views: 100</p>
             </div>
         </div>
+        <hr>
         <div class="blog_section">
             <div class="blogs">
                 <h4 class="topic">Big ass Topic nigga</h4>
@@ -68,4 +91,5 @@
         </div>
     </div>
 </body>
+
 </html>

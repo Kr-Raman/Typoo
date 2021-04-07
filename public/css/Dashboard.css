@@ -1,45 +1,64 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-    
 }
-.header
-{
+
+
+/* for the navbar */
+
+.header {
     height: 40px;
     width: 100%;
     background-color: transparent;
     display: flex;
     justify-content: flex-end;
-    align-content: center;
-    
-    
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    justify-content: space-between;
 }
-.header img{
+
+.profile_pic {
     border-radius: 50%;
+    margin-left: 70rem;
+    height: 60px
 }
-.container
-{
-    position:absolute;
+
+.logo {
+    margin-left: 40px;
+}
+
+.logo_name {
+    position: absolute;
+    left: 12rem;
+    text-align: center;
+    font-size: 60px;
+}
+
+
+/* end of navbar */
+
+
+/* left section */
+
+.container {
+    position: absolute;
     display: flex;
     height: 754px;
     z-index: 1;
     width: 100%;
-    background-color: brown;
+    background-color: rgb(255, 255, 255);
 }
 
-.profile
-{
+.profile {
     display: block;
-    
-    min-width:21rem ;
+    min-width: 21rem;
     max-width: 21rem;
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
 }
-.profile img
-{
+
+.profile img {
     height: 300px;
     min-width: 200px;
     max-width: 300px;
@@ -48,24 +67,46 @@
     padding: 1rem;
 }
 
-.profile_info
-{
+.profile_info {
     margin: 2rem;
-    text-align: center;
+    text-align: left;
 }
-.blog_section
-{
-    display:flexbox ;
+
+.edit_btn {
+    background-color: rgb(242, 248, 246);
+    padding: 5px 16px;
+    width: 15rem;
+    border-radius: 0.3rem;
+}
+
+ul.side_links li {
+    margin-left: 20px;
+    margin-top: 10px;
+    list-style: none;
+}
+
+ul.side_links li img {
+    height: 20px;
+    filter: invert(100%);
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+
+/* end of left section */
+
+.blog_section {
+    display: flexbox;
     overflow: scroll;
-
+    background-color: rgb(242, 248, 246);
 }
 
-.blogs
-{   float: left;
+.blogs {
+    float: left;
     height: 10rem;
     width: 20rem;
-    border-radius:1rem ;
-    background-color: yellow;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
     padding: 5px;
     margin: 2rem;
 }

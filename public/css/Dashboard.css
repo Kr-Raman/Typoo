@@ -1,114 +1,133 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 
 /* for the navbar */
 
 .header {
-    height: 40px;
-    width: 100%;
-    background-color: transparent;
-    display: flex;
-    justify-content: flex-end;
-    display: flex;
-    height: 5rem;
-    width: 100%;
-    justify-content: space-between;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  /* justify-content: flex-end; */
+
+  height: 4rem;
+  width: 100%;
+  /* justify-content: space-between; */
+  border-bottom: 2px solid rgb(197, 228, 218);
 }
 
 .profile_pic {
-    border-radius: 50%;
-    margin-left: 70rem;
-    height: 60px
+  position: relative;
+  top: 10px;
+  border-radius: 50%;
+  margin-left: 75rem;
+  height: 40px;
+}
+.username {
+  position: relative;
+  top: 20px;
+  left: 10px;
 }
 
 .logo {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 .logo_name {
-    position: absolute;
-    left: 12rem;
-    text-align: center;
-    font-size: 60px;
+  position: absolute;
+  left: 12rem;
+  text-align: center;
+  font-size: 50px;
 }
 
-
 /* end of navbar */
-
 
 /* left section */
 
 .container {
-    position: absolute;
-    display: flex;
-    height: 754px;
-    z-index: 1;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
+  position: absolute;
+  display: flex;
+  height: 690px;
+  z-index: 1;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
 }
 
 .profile {
-    display: block;
-    min-width: 21rem;
-    max-width: 21rem;
-    background-color: rgb(255, 255, 255);
+  display: block;
+  min-width: 21rem;
+  max-width: 21rem;
+  background-color: rgb(255, 255, 255);
+  border-right: 2px solid rgb(197, 228, 218);
 }
 
-.profile img {
-    height: 300px;
-    min-width: 200px;
-    max-width: 300px;
-    border-radius: 50%;
-    margin: 1rem;
-    padding: 1rem;
+.pro_pic {
+  height: 300px;
+  min-width: 200px;
+  max-width: 300px;
+  border-radius: 50%;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .profile_info {
-    margin: 2rem;
-    text-align: left;
+  margin: 5px 5px 20px 30px;
+  padding-right: 5px;
+  text-align: left;
 }
 
 .edit_btn {
-    background-color: rgb(242, 248, 246);
-    padding: 5px 16px;
-    width: 15rem;
-    border-radius: 0.3rem;
+  background-color: rgb(242, 248, 246);
+  padding: 5px 16px;
+  width: 15rem;
+  border-radius: 0.3rem;
+}
+.list {
+  margin: 1px;
+  margin-left: 30px;
+  /* padding: 2px; */
+  line-height: 14px;
+  /* display: inline-block; */
 }
 
-.side_links li {
-    margin-left: 20px;
-    margin-top: 1px;
-    list-style: none;
+.list_img {
+  height: 20px;
+  width: 20px;
+  display: inline;
 }
+.list p {
+  position: relative;
+  top: -20px;
+  left: 20px;
+  margin: 5px;
+  width: 270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* border: 2px solid black; */
+  /* margin-left: 20px; */
 
-ul {
-    list-style-image: url(/public/Images/Capture.PNG);
+  /* white-space: nowrap;  */
+  /* text-overflow: ellipsis;  */
+  /* /* overflow-x: hidden ; */
 }
-
-.side_links li img {
-    height: 50px;
-    width: 50px;
-}
-
 
 /* end of left section */
 
 .blog_section {
-    display: flexbox;
-    overflow: auto;
-    background-color: rgb(242, 248, 246);
+  display: flexbox;
+  overflow: auto;
+  background-color: rgb(242, 248, 246);
 }
 
 .blogs {
-    float: left;
-    height: 10rem;
-    width: 20rem;
-    border-radius: 1rem;
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
-    margin: 2rem;
+  float: left;
+  height: 10rem;
+  width: 20rem;
+  border-radius: 1rem;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  margin: 2rem;
 }

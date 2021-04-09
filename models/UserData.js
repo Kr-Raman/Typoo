@@ -26,6 +26,9 @@ const UserSchema = new mongoose.Schema({
     cnf_pass: {
         type: String,
         required: true
+    },
+    blogs: {
+        type: Number
     }
 })
 

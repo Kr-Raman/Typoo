@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html>
 <body>
 
@@ -20,6 +20,58 @@
   <input type="submit" value="Submit">
 </form> 
 
+
+</body>
+</html> --}}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+<div class="container">
+  <div class="nav">
+    <img class="logo" src="/Images/logo.svg" alt="logo">
+    <h1 class="logo_name">Typoo</h1>
+
+
+    <div class="LogSin">
+        
+        <a href="/signin"><button class="signin">Sign in</button></a>
+        <a href="/signup"><button class="signup">Sign up</button></a>
+  </div>
+  </div>
+
+<div class="SignUpForm">
+
+<h2>Write Blog</h2>
+<div  class="Form">
+
+  <form action="/blog_write" method="POST">
+   
+    <input type="text" id="username" name="username" placeholder="User Name" autocomplete="off">
+    <!-- <label for="last_name">Last name:</label><br> -->
+    <input type="text" id="title" name="title" placeholder="Title" autocomplete="off">
+    <!-- <label for="email_id">email_id:</label><br> -->
+    <input type="text" id="content" name="content" placeholder="Content" autocomplete="off">
+    <!-- <label for="username">username:</label><br> -->
+    <input type="text" id="author" name="author" placeholder="Author Name" autocomplete="off">
+    <!-- <label for="password">password:</label><br> -->
+    
+    <input type="submit" value="Add Blog" id="submit">
+  </form> 
+</div>
+
+
+</div>
+
+</div>
 
 </body>
 </html>

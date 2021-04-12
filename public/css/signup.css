@@ -92,7 +92,7 @@
     
     
 }
-#fname,#lname,#email,#username,#password,#cnf_pass
+#fname,#lname,#email,#username,#password,#cnf_pass,#title,#content,#author
 {
    float: left;
    clear: both;

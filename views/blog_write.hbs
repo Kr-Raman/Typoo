@@ -54,15 +54,15 @@
 <div  class="Form">
 
   <form action="/blog_write" method="POST">
-    <input type="text" name="_id" value="{{user_blog._id}}">
+    <input type="hidden"id="_id" name="_id" value="{{doc._id}}" placeholder={{doc._id}}>
    
-    <input type="text" id="username" name="username" placeholder="User Name" autocomplete="off">
+    <input type="text" id="username" name="username" placeholder="User Name"  value="{{doc.username}}" autocomplete="off">
     <!-- <label for="last_name">Last name:</label><br> -->
-    <input type="text" id="title" name="title" placeholder="Title" autocomplete="off">
+    <input type="text" id="title" name="title" placeholder="Title"  value="{{doc.title}}" autocomplete="off">
     <!-- <label for="email_id">email_id:</label><br> -->
-    <input type="text" id="content" name="content" placeholder="Content" autocomplete="off">
+    <input type="text" id="content" name="content" placeholder="Content" value="{{doc.content}}" autocomplete="off">
     <!-- <label for="username">username:</label><br> -->
-    <input type="text" id="author" name="author" placeholder="Author Name" autocomplete="off">
+    <input type="text" id="author" name="author" placeholder="Author Name" value="{{doc.author}}" autocomplete="off">
     <!-- <label for="password">password:</label><br> -->
     
     <input type="submit" value="Add Blog" id="submit">

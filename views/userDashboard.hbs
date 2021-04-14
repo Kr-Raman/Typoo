@@ -59,6 +59,8 @@
         </div>
         
         <div class="blog_section">
+             <a href="/blog_write"><button class="signup">Write blog</button></a>
+
             {{#each user_blog}}
             <div class="blogs">
                
@@ -66,9 +68,17 @@
                 
                
                 <p>{{this.content}}</p>
+
+                <td>
+                <a href="/blog_write/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"> edit</i></a>
+                
+                <a href="/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true">DELETE</i></a>
+            </td>
+
             </div>
              {{/each}}
-            <div class="blogs">
+            {{!-- <div class="blogs">
+               
                 <h4 class="topic">Big ass Topic nigga</h4>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum, delectus. Optio qui, aut quasi similique alias eius totam veniam minima deserunt! Veniam officia et error dolor, rerum tempore quaerat fugit.</p>
             </div>
@@ -103,7 +113,7 @@
             <div class="blogs">
                 <h4 class="topic">Big ass Topic nigga</h4>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum, delectus. Optio qui, aut quasi similique alias eius totam veniam minima deserunt! Veniam officia et error dolor, rerum tempore quaerat fugit.</p>
-            </div>
+            </div> --}}
         </div>
     </div>
     <script>

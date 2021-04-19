@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/Typoo", {
+mongoose.connect("mongodb+srv://raghav:Raghav@1@cluster0.5diwb.mongodb.net/typoo?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true

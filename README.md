@@ -2,7 +2,7 @@
 🌐 Full Stack Typoo
 </h1>
 <p align="center">
-MongoDB, Expressjs, Nodejs, express-handlebars
+MongoDB, Expressjs, Nodejs, express-handlebars <br>
    https://typoo-blog.herokuapp.com
 </p>
 

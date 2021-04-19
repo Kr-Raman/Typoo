@@ -16,15 +16,9 @@ app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "hbs");
 
 app.get("/", (req, res) => {
-    Register.findById(req.params.id, (err, doc) => {
-        if (!err) {
-            res.render("index", {
-                user: doc,
-            });
-        } else {
-            console.log("Error in retrieving employee list :" + err);
-        }
-    });
+
+    res.render("index")
+
 });
 app.get("/signup", (req, res) => {
     res.render("signup");
@@ -227,6 +221,11 @@ app.post("/signup", async(req, res) => {
         res.status(400).send(error);
     }
 });
+
+if (process.env.NODE_ENV === 'production') {
+
+
+}
 
 app.listen(port, () => {
     console.log("port");

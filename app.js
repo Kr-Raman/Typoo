@@ -155,11 +155,19 @@ app.get("/blog_write/:id", (req, res) => {
 
 //DELETE BLOG
 app.get("/delete/:id", (req, res) => {
-
-    Blog.findByIdAndRemove(req.params.id, (err, doc) => {
+    // Blog.findByIdAndRemove(req.params.id, (err, doc) => {
+    Blog.findById(req.params.id, async(err, doc) => {
         if (!err) {
-            res.status(201).render("signin");
-
+            const username = doc.username;
+            const user_details = await Details.findOne({ username: username });
+            const id = user_details._id;
+            Blog.findByIdAndRemove(req.params.id, (err, doc) => {
+                if (!err) {
+                    res.redirect('/userDashboardd/' + id);
+                } else {
+                    console.log("Error in blog delete :" + err);
+                }
+            });
         } else {
             console.log("Error in blog delete :" + err);
         }

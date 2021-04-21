@@ -72,7 +72,7 @@ app.post("/signin", async(req, res) => {
         const user_cred = await Register.findOne({ username: username });
         const user_blog = await Blog.find({ username: username });
         const user_details = await Details.findOne({ username: username });
-        console.log(user_details);
+
         if (user_cred.password === password) {
             res.status(201).render("userDashboard", {
                 user_cred: user_cred,
@@ -121,9 +121,10 @@ function insertRecord(req, res) {
     blog.username = req.body.username;
 
     blog.save((err, doc) => {
-        if (!err)
-            res.render('signin');
-        else
+        if (!err) {
+            const id = doc._id;
+            res.redirect('userDashboardb/' + id);
+        } else
             console.log("error in saving data");
     });
 }
@@ -131,7 +132,8 @@ function insertRecord(req, res) {
 function updateRecord(req, res) {
     Blog.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
         if (!err) {
-            res.render('signin');
+            const id = doc._id;
+            res.redirect('userDashboardb/' + id);
         } else
             console.log('Error during record update : ' + err);
 
@@ -163,17 +165,45 @@ app.get("/delete/:id", (req, res) => {
         }
     });
 });
-// //USER Dashboard PAGE
-// app.get("/userDashboard/:id", (req, res) => {
-//     const id = req.params.id;
-//     Blog.findById(req.params.id, (err, doc) => {
-//         if (!err) {
-//             res.render("blog_page", {
-//                 doc: doc
-//             });
-//         }
-//     });
-// });
+//USER Dashboard PAGE
+app.get("/userDashboardd/:id", async(req, res) => {
+
+    Details.findById(req.params.id, async(err, doc) => {
+        if (!err) {
+            const username = doc.username;
+
+            const user_cred = await Register.findOne({ username: username });
+            const user_blog = await Blog.find({ username: username });
+            const user_details = await Details.findOne({ username: username });
+            res.render("userDashboard", {
+                user_cred: user_cred,
+                user_blog: user_blog,
+                user_details: user_details
+            });
+        } else {
+            console.log("Error in userdashboard");
+        }
+    });
+});
+app.get("/userDashboardb/:id", async(req, res) => {
+
+    Blog.findById(req.params.id, async(err, doc) => {
+        if (!err) {
+            const username = doc.username;
+
+            const user_cred = await Register.findOne({ username: username });
+            const user_blog = await Blog.find({ username: username });
+            const user_details = await Details.findOne({ username: username });
+            res.render("userDashboard", {
+                user_cred: user_cred,
+                user_blog: user_blog,
+                user_details: user_details
+            });
+        } else {
+            console.log("Error in userdashboard");
+        }
+    });
+});
 
 
 //EDIT DETAILS PAGE
@@ -190,9 +220,11 @@ app.get("/edit_details/:id", (req, res) => {
 });
 
 app.post('/edit_details', (req, res) => {
+    const id = req.params.id;
     Details.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
         if (!err) {
-            res.render('signin');
+            const id = doc._id
+            res.redirect('userDashboardd/' + id);
         } else
             console.log('Error during editing details');
 

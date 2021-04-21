@@ -7,6 +7,7 @@ require("./db/conn");
 const hbs = require("hbs");
 const Register = require("./models/UserData");
 const Blog = require("./models/BlogData");
+const Details = require("./models/UserDetails");
 
 const static_path = path.join(__dirname, "/public");
 app.use(express.static(static_path));
@@ -15,18 +16,91 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "hbs");
 
+//HOME PAGE
 app.get("/", (req, res) => {
 
     res.render("index")
 
 });
+
+
+//SIGNUP PAGE
 app.get("/signup", (req, res) => {
     res.render("signup");
 });
+app.post("/signup", async(req, res) => {
+    try {
+        const pass = req.body.password;
+        const cnf_pass = req.body.cnf_pass;
+        if (pass === cnf_pass) {
+            const user = new Register({
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email_id: req.body.email_id,
+                username: req.body.username,
+                password: req.body.password,
+                cnf_pass: req.body.cnf_pass,
+            });
+
+            const registered = await user.save();
+
+            const details = new Details({
+                username: req.body.username,
+                email_id: req.body.email_id
+            });
+
+            const detailed = await details.save();
+            res.status(201).render("index");
+        } else {
+            res.send("password are not matching");
+        }
+    } catch (error) {
+        res.status(400).send("some error in signup");
+    }
+});
+
+
+//SIGNIN PAGE
 app.get("/signin", (req, res) => {
     res.render("signin");
 });
+app.post("/signin", async(req, res) => {
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
 
+        const user_cred = await Register.findOne({ username: username });
+        const user_blog = await Blog.find({ username: username });
+        const user_details = await Details.findOne({ username: username });
+        console.log(user_details);
+        if (user_cred.password === password) {
+            res.status(201).render("userDashboard", {
+                user_cred: user_cred,
+                user_blog: user_blog,
+                user_details: user_details
+            });
+        } else {
+            res.send("password incorrect");
+        }
+    } catch (error) {
+        res.status(400).send("username not found");
+    }
+});
+
+
+//BLOG VIEW PAGE
+app.get("/blog_page/:id", (req, res) => {
+    const id = req.params.id;
+    Blog.findById(req.params.id, (err, doc) => {
+        if (!err) {
+            res.render("blog_page", {
+                doc: doc
+            });
+        }
+    });
+});
+
+//INSERT OR UPDATE BLOG
 app.get("/blog_write", (req, res) => {
     res.render("blog_write");
 });
@@ -65,65 +139,6 @@ function updateRecord(req, res) {
 }
 
 
-
-
-
-
-
-// app.post("/blog_write", async(req, res) => {
-//     try {
-//         const username = req.body.username;
-//         console.log(username);
-
-
-//         const blog = new Blog({
-//             title: req.body.title,
-//             content: req.body.content,
-//             author: req.body.author,
-//             username: req.body.username,
-//         });
-
-//         const blogs = await blog.save();
-//         const user_blog = await Blog.find({ username: username });
-//         const user_cred = await Register.findOne({ username: username });
-//         res.status(201).render("userDashboard", {
-//             user_blog: user_blog,
-//             user_cred: user_cred,
-//         });
-//     } catch (error) {
-//         res.status(400).send("cath me aa gaya");
-//     }
-// });
-// //
-// async function insertRecord(req, res) {
-//     try {
-//         const username = req.body.username;
-//         const user_blog = await Blog.find({ username: username });
-//         const user_cred = await Register.findOne({ username: username });
-
-//         const blog = new Blog({
-//             title: req.body.title,
-//             content: req.body.content,
-//             author: req.body.author,
-//             username: req.body.username,
-//         });
-
-//         const blogs = await blog.save();
-//         res.status(201).render("userDashboard", {
-//             user_blog: user_blog,
-//         });
-//     } catch (error) {
-//         res.status(400).send("cath me aa gaya");
-//     }
-// }
-
-// function updateRecord(req, res) {
-//     Blog.findOneAndUpdate({ _id: req.body._id }, (err, doc) => {
-//         if (!err) {
-//             res.redirect("index");
-//         }
-//     });
-// }
 //UPDATE
 app.get("/blog_write/:id", (req, res) => {
     const id = req.params.id;
@@ -134,24 +149,9 @@ app.get("/blog_write/:id", (req, res) => {
             });
         }
     });
-
-
-
-    // console.log(id);
-    // Blog.findOneAndUpdate({ _id: req.params.id },
-    //     req.body, { new: true },
-    //     (err, doc) => {
-    //         if (!err) {
-    //             console.log(req.body);
-    //             res.render("blog_write");
-    //             doc: req.body
-
-    //         }
-    //     }
-    // );
 });
 
-//DELETE
+//DELETE BLOG
 app.get("/delete/:id", (req, res) => {
 
     Blog.findByIdAndRemove(req.params.id, (err, doc) => {
@@ -163,69 +163,47 @@ app.get("/delete/:id", (req, res) => {
         }
     });
 });
-
-// app.get("/:id", (req, res) => {
-//   Register.findById(req.params.id, (err, doc) => {
-//     if (!err) {
-//       res.render("blog_write", {
-//         user: doc,
-//       });
-//     } else {
-//       console.log("Error in retrieving employee list :" + err);
-//     }
-//   });
+// //USER Dashboard PAGE
+// app.get("/userDashboard/:id", (req, res) => {
+//     const id = req.params.id;
+//     Blog.findById(req.params.id, (err, doc) => {
+//         if (!err) {
+//             res.render("blog_page", {
+//                 doc: doc
+//             });
+//         }
+//     });
 // });
 
-app.post("/signin", async(req, res) => {
-    try {
-        const username = req.body.username;
-        const password = req.body.password;
 
-        const user_cred = await Register.findOne({ username: username });
-        const user_blog = await Blog.find({ username: username });
-        if (user_cred.password === password) {
-            res.status(201).render("userDashboard", {
-                user_cred: user_cred,
-                user_blog: user_blog,
+//EDIT DETAILS PAGE
+
+app.get("/edit_details/:id", (req, res) => {
+    const id = req.params.id;
+    Details.findById(req.params.id, (err, doc) => {
+        if (!err) {
+            res.render("edit_details", {
+                doc: doc
             });
-        } else {
-            res.send("password incorrect");
         }
-    } catch (error) {
-        res.status(400).send("username not found");
-    }
+    });
 });
 
-app.post("/signup", async(req, res) => {
-    try {
-        // console.log(req.body.first_name);
-        // res.send(req.body.first_name);
-        const pass = req.body.password;
-        const cnf_pass = req.body.cnf_pass;
-        if (pass === cnf_pass) {
-            const user = new Register({
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                email_id: req.body.email_id,
-                username: req.body.username,
-                password: req.body.password,
-                cnf_pass: req.body.cnf_pass,
-            });
+app.post('/edit_details', (req, res) => {
+    Details.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
+        if (!err) {
+            res.render('signin');
+        } else
+            console.log('Error during editing details');
 
-            const registered = await user.save();
-            res.status(201).render("index");
-        } else {
-            res.send("password are not matching");
-        }
-    } catch (error) {
-        res.status(400).send(error);
-    }
+    });
 });
 
-if (process.env.NODE_ENV === 'production') {
 
 
-}
+
+
+
 
 app.listen(port, () => {
     console.log("port");

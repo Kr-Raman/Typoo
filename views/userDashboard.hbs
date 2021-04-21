@@ -30,8 +30,8 @@
             <img src="/Images/Capture.PNG" alt="profile_pic" class="pro_pic">
             <div class="profile_info">
                 <h1>{{user_cred.first_name}}</h1>
-                <p>Cloud Computing || MERN Stack Development || AWS || Penetration testing || AI & ML || Virtualization||Data Science</p><br>
-                <button class="edit_btn">Edit profile</button>
+                <p>{{user_details.bio}}</p><br>
+                <a href="edit_details/{{user_details._id}}"><button class="edit_btn">Edit profile</button></a>
                 
                 <p>blog posted : 10</p>
                 <p>Total views: 100</p>
@@ -41,19 +41,19 @@
                 
                     <div class="list">
                      <img src="/Images/university.svg" alt="" class="list_img">
-                     <p>Unibersity of Petroleum and Energy Studies</p> 
+                     <p>{{user_details.univ_name}}</p> 
                     </div>
                     <div class="list">
                      <img src="/Images/location.svg" alt="" class="list_img">
-                     <p>Kanpur - 07 Uttar-Pradesh</p> 
+                     <p>{{user_details.address}}</p> 
                     </div>
                     <div class="list">
                      <img src="/Images/email.svg" alt="" class="list_img">
-                     <p>k.raman22222@gmail.com</p> 
+                     <p>{{user_details.email_id}}</p> 
                     </div>
                     <div class="list">
                      <img src="/Images/twitter.svg" alt="" class="list_img">
-                     <p>kr-raman</p> 
+                     <p>{{user_details.account}}</p> 
                     </div>
          </div>
         </div>
@@ -64,7 +64,7 @@
             {{#each user_blog}}
             <div class="blogs">
                
-                <h4 class="topic">{{this.title}}</h4>
+                <a href="/blog_page/{{this._id}}"><h4 class="topic">{{this.title}}</h4></a>
                 
                
                 <p>{{this.content}}</p>
@@ -76,6 +76,7 @@
             </td>
 
             </div>
+           
              {{/each}}
             {{!-- <div class="blogs">
                

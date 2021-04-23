@@ -241,8 +241,32 @@ app.post('/edit_details', (req, res) => {
 
 
 
+//ADMIN PAGE
+app.get("/admin", (req, res) => {
+    res.render("admin")
+});
+app.post("/adminlogin", async(req, res) => {
+    try {
+        const username = req.body.username;
+        const password = req.body.password;
 
+        const user_cred = await Register.findOne({ username: username });
+        const user_blog = await Blog.find({ username: username });
+        const user_details = await Details.findOne({ username: username });
 
+        if (user_cred.password === password && user_cred.admin === true) {
+            res.status(201).render("adminDashboard", {
+                user_cred: user_cred,
+                user_blog: user_blog,
+                user_details: user_details
+            });
+        } else {
+            res.send("password incorrect or you not an admin user");
+        }
+    } catch (error) {
+        res.status(400).send("username not found");
+    }
+});
 
 
 app.listen(port, () => {
